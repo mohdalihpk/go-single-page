@@ -1,15 +1,14 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import "log"
+
+
 
 func main() {
-	app := fiber.New()
+	// app := fiber.New()
 
-    // Create a new endpoint
-    app.Get("/", func(c *fiber.Ctx) error {
-        return c.SendString("Hello World!")
-    })
-
-    // Start server on port 3000
-    app.Listen(":3000")
+	app := WebRoute()
+	// app.Static("/", "./public")
+	// Start server on port 3000
+	log.Fatal(app.Listen(":3000"))
 }
